@@ -42,7 +42,7 @@ function subscribe_user_to_list($user, $list_name, $credentials) {
   $result = curl_exec($ch);
   curl_close($ch);
 
-  list($response_code, ) = split("\n", $result);
+  list($response_code, ) = explode("\n", $result);
   $response_code == '0' or die("Unable to POST new user to Constant Contact: ".$result);
 
   return true;    // All's well.
